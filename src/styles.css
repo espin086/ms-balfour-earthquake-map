@@ -56,16 +56,6 @@ body {
   font-size: 1rem;
 }
 
-.priority {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  border: 1px solid #c7963a;
-  background: rgba(255, 179, 71, 0.16);
-  font-weight: 700;
-}
-
 .controls {
   padding: 14px;
   display: grid;
@@ -90,7 +80,7 @@ body {
   border-radius: 999px;
   background: #1e2740;
   color: var(--ink);
-  padding: 8px 12px;
+  padding: 10px 14px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -265,8 +255,23 @@ body {
 }
 
 @media (max-width: 1050px) {
+  .page {
+    width: min(100%, calc(100% - 16px));
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
   .controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px;
+    gap: 10px;
   }
 
   .mainGrid {
@@ -279,11 +284,103 @@ body {
 }
 
 @media (max-width: 620px) {
+  body {
+    font-size: 15px;
+  }
+
+  .page {
+    width: calc(100% - 12px);
+    margin: 6px auto 16px;
+    gap: 8px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .hero {
+    padding: 12px;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
   .controls {
     grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .controls h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .chips {
+    gap: 6px;
+  }
+
+  .chip,
+  .action {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.95rem;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
   }
 
   #quake-map {
-    height: 430px;
+    height: 360px;
+  }
+
+  .sideCard {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stats strong {
+    font-size: 1.2rem;
+  }
+
+  .selected,
+  .explainer,
+  .chartNote {
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  .chartCard {
+    padding: 10px;
+  }
+
+  .chartCard h2 {
+    font-size: 1.15rem;
+  }
+
+  .chartWrap {
+    height: 230px;
+  }
+
+  .statusRow {
+    gap: 6px;
+    font-size: 0.82rem;
+  }
+
+  .statusRow span {
+    width: 100%;
+    border-radius: 10px;
+    padding: 6px 8px;
+  }
+
+  .footer {
+    font-size: 0.82rem;
+    padding-bottom: 8px;
   }
 }

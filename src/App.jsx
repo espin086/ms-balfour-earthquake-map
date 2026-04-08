@@ -288,7 +288,6 @@ export default function App() {
     <main className="page">
       <section className="hero card">
         <h1>California Earthquake + Tsunami Explorer</h1>
-        <p className="priority">Priority: Ms. Belfour&apos;s 3rd Grade Class in Playa Vista</p>
         <p>
           Live map for learning plate tectonics, earthquakes, and tsunami risk signals. This view loads California
           earthquakes above magnitude {MIN_MAGNITUDE.toFixed(1)}.
