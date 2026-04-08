@@ -1,0 +1,279 @@
+:root {
+  --bg-a: #0a1120;
+  --bg-b: #15192c;
+  --ink: #e8f0ff;
+  --card: #171e31;
+  --primary: #5ec2ff;
+  --accent: #ffb347;
+  --success: #4dd4bc;
+  --error: #ff7a7a;
+  --border: rgba(189, 213, 255, 0.2);
+  --shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(94, 194, 255, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 7%, rgba(255, 179, 71, 0.16), transparent 31%),
+    linear-gradient(155deg, var(--bg-a), var(--bg-b));
+  min-height: 100vh;
+}
+
+.page {
+  width: min(1240px, calc(100% - 24px));
+  margin: 12px auto 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 18px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  letter-spacing: 0.3px;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  max-width: 920px;
+  font-size: 1rem;
+}
+
+.priority {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid #c7963a;
+  background: rgba(255, 179, 71, 0.16);
+  font-weight: 700;
+}
+
+.controls {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.controls h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip,
+.action {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #1e2740;
+  color: var(--ink);
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chip.active {
+  background: #243858;
+  border-color: #6dc8ff;
+}
+
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sliderRow input {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.actions {
+  display: grid;
+  gap: 8px;
+}
+
+.action {
+  width: 100%;
+  background: linear-gradient(145deg, #27456b, #3f3754);
+}
+
+.action.secondary {
+  background: #1e2740;
+}
+
+.statusRow {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.statusRow span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: #1c253d;
+}
+
+.errorBox {
+  margin: 0;
+  border: 1px solid #ff8f8f;
+  border-radius: 12px;
+  background: rgba(193, 18, 31, 0.25);
+  padding: 10px 12px;
+  color: #ffd5d5;
+  font-weight: 700;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 12px;
+}
+
+.mapCard {
+  overflow: hidden;
+}
+
+#quake-map {
+  height: 580px;
+}
+
+.sideCard {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.sideCard h2 {
+  margin: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stats div {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 8px;
+  background: #1b2540;
+}
+
+.stats span {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.stats strong {
+  font-size: 1.3rem;
+}
+
+.selected,
+.explainer {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.selected h3,
+.selected p {
+  margin: 0 0 6px;
+}
+
+.explainer {
+  background: rgba(255, 209, 102, 0.12);
+  border-color: rgba(255, 209, 102, 0.55);
+}
+
+.chartCard {
+  padding: 14px;
+}
+
+.chartCard h2 {
+  margin: 0 0 8px;
+}
+
+.chartWrap {
+  height: 280px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.footer p {
+  margin: 2px 0;
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 17, 32, 0.82);
+  backdrop-filter: blur(2px);
+}
+
+.loadingCard {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 22px;
+  background: #1a243d;
+  font-weight: 700;
+}
+
+@media (max-width: 1050px) {
+  .controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  #quake-map {
+    height: 470px;
+  }
+}
+
+@media (max-width: 620px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  #quake-map {
+    height: 430px;
+  }
+}
