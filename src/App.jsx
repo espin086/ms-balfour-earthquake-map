@@ -25,6 +25,8 @@ const RANGE_LABELS = {
   "30d": "30 Days",
   "5y": "5 Years"
 };
+const MAG_BUCKET_LABELS = ["2.0-2.4", "2.5-2.9", "3.0-3.4", "3.5-3.9", "4.0-4.9", "5.0-5.9", "6.0+"];
+const MAG_BUCKET_COLORS = ["#76e3c8", "#9bd97d", "#ffd166", "#ffb347", "#f4a261", "#f07167", "#ef476f"];
 
 export default function App() {
   const [events, setEvents] = useState([]);
@@ -139,23 +141,26 @@ export default function App() {
       return;
     }
 
-    const buckets = [0, 0, 0, 0];
+    const buckets = [0, 0, 0, 0, 0, 0, 0];
     filtered.forEach((event) => {
-      if (event.mag < 3) buckets[0] += 1;
-      else if (event.mag < 4) buckets[1] += 1;
-      else if (event.mag < 5) buckets[2] += 1;
-      else buckets[3] += 1;
+      if (event.mag < 2.5) buckets[0] += 1;
+      else if (event.mag < 3.0) buckets[1] += 1;
+      else if (event.mag < 3.5) buckets[2] += 1;
+      else if (event.mag < 4.0) buckets[3] += 1;
+      else if (event.mag < 5.0) buckets[4] += 1;
+      else if (event.mag < 6.0) buckets[5] += 1;
+      else buckets[6] += 1;
     });
 
     if (!chartRef.current) {
       chartRef.current = new Chart(chartCanvasRef.current, {
         type: "bar",
         data: {
-          labels: ["2.0-2.9", "3.0-3.9", "4.0-4.9", "5.0+"],
+          labels: MAG_BUCKET_LABELS,
           datasets: [
             {
               data: buckets,
-              backgroundColor: ["#84dcc6", "#ffd166", "#f4a261", "#ef476f"],
+              backgroundColor: MAG_BUCKET_COLORS,
               borderRadius: 10,
               borderWidth: 0
             }
@@ -367,6 +372,10 @@ export default function App() {
         <div className="chartWrap">
           <canvas ref={chartCanvasRef} />
         </div>
+        <p className="chartNote">
+          Note: This map includes earthquakes magnitude 2.0 and above so it loads faster on a free hosted website.
+          Most earthquakes below 2.0 are very small and usually do not trigger tsunami warnings.
+        </p>
         {!loading && filtered.length === 0 ? <p>No quakes match this filter right now.</p> : null}
       </section>
 
